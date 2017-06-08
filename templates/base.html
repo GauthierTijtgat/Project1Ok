@@ -3,17 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Base</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
 </head>
-<link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
-
 
 
 <div ID="wrapper">
-    <header>
-    <div class="lol">
 
-    </div>
-<img src="/static/img/logoproject.png" style="width:70px; height:70px;">
+    <header>
+<img src="/static/img/logoproject.png" style="width:85px; height:85px;">
 <nav >
     <ul>
         <li><a {% block addbooks %}{% endblock %} href="{{ url_for("home") }}"><img src="/static/img/layer-4.png" style="width:40px; height:40px;"></a></li>
@@ -33,7 +30,7 @@
 
 
 <div class="test">
-    aaaaa
+    Gauthier Tijtgat || 1NMCT2
 </div>
 
 </body>

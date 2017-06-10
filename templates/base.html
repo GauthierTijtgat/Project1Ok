@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Base</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
 </head>
 
@@ -13,7 +13,7 @@
 <img src="/static/img/logoproject.png" style="width:85px; height:85px;">
 <nav >
     <ul>
-        <li><a {% block addbooks %}{% endblock %} href="{{ url_for("home") }}"><img src="/static/img/layer-4.png" style="width:40px; height:40px;"></a></li>
+        {% block addbooks %}{% endblock %}
         {% block back %} {% endblock %}
 
     </ul>
@@ -22,9 +22,8 @@
 
 <body>
 
-
+{% block headertitel %}{% endblock %}
 {% block  body %}
-
 
 {% endblock %}
 

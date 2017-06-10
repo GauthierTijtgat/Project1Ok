@@ -1,58 +1,41 @@
-<!doctype html>
-
-<html lang="en">
-
-<head>
-
-	<meta charset="utf-8">
-
-	<title>Voorbeeld Project 1</title>
-
-	<meta name="description" content="Voorbeeld pagina">
-
-	<meta name="author" content="Voorbeeld">
-
-	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
-
-</head>
-<link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
-<body>
-
-	<header>
-
-<img src="/static/img/logoproject.png" style="width:70px; height:70px;">
-
-		<nav>
+{% extends "base.html" %}
 
 
-			<ul>
-				<li><li><a href="addbook.html"><img src="/static/img/layer-4.png" style="width:35px; height:35px;"></a></li></li>
-                <li><li><a href="index.html"><img src="/static/img/layer-5.png"  style="width:35px; height:35px;"></a></li></li>
 
+{% block back %}
+<li><a href="{{ url_for("home") }}"><img src="/static/img/layer-5.png" style="width:40px; height:40px;"></a></li>
+{% endblock %}
 
-			</ul>
-
-		</nav>
-
-	</header>
-
-	<section>
-    <h1>Add a book</h1>
+{% block headertitel %}
+<h1> Add a book </h1>
+{% endblock %}
 
 
 
 
+{% block body %}
+    <div class="formulier">
 
-	</section>
+        <form action="addbook.html" method="post">
 
+        <label for="inputTitel">Titel:</label>
+        <input type="text" name="inputTitel" id="inputTitel" class="form-control" placeholder="Titel" required autofocus>
 
-	<footer class="footer-distributed">
-			<div class="footer-left">
-				<p>Gauthier Tijtgat &copy; 2017</p>
-			</div>
+        <label for="inputAuteur">Auteur:</label>
+        <input type="text" name="inputAuteur" id="inputauteur" class="form-control" placeholder="Auteur" required autofocus>
 
-	</footer>
+        <label for="inputISBN">ISBN:</label>
+        <input type="text" name="inputISBN" id="inputISBN" class="form-control" placeholder="ISBN" required autofocus>
 
-</body>
+        <label for="inputCategorie">Categorie:</label>
+        <input type="text" name="inputCategorie" id="inputCategorie" class="form-control" placeholder="Categorie" required autofocus>
 
-</html>
+        <label for="inputAantalblz">AantalBlz:</label>
+        <input type="text" name="inputAantalblz" id="inputAantalblz" class="form-control" placeholder="AantalBlz" required autofocus style="background-color: white">
+        <br>
+        <button id="submit" class="btn btn-primary btn-md" type="button">Voeg toe!</button>
+
+ </form>
+</div>
+
+{% endblock %}

@@ -16,7 +16,7 @@
 {% block body %}
     <div class="formulier">
 
-        <form action="addbook.html" method="post">
+        <form action="http://169.254.10.11:3000/allbooks" method="POST">
 
         <label for="inputTitel">Titel:</label>
         <input type="text" name="inputTitel" id="inputTitel" class="form-control" placeholder="Titel" required autofocus>
@@ -33,7 +33,7 @@
         <label for="inputAantalblz">AantalBlz:</label>
         <input type="text" name="inputAantalblz" id="inputAantalblz" class="form-control" placeholder="AantalBlz" required autofocus style="background-color: white">
         <br>
-        <button id="submit" class="btn btn-primary btn-md" type="button">Voeg toe!</button>
+        <button id="submit" class="btn btn-primary btn-md" value="submit">Voeg toe!</button>
 
  </form>
 </div>

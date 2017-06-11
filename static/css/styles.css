@@ -157,12 +157,12 @@ table {
 table tr th {
   padding: 0.5em;
   text-align: left;
-  background-color: #aaa;
-  color: #fff;
+  background-color: white;
+  color: #39b54a;
 }
 
 table tr:nth-child(even) {
-  background-color: #ddd;
+  background-color: #39b54a;
 }
 
 table tr td {

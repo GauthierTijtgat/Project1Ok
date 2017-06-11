@@ -14,14 +14,21 @@ def home():
     return render_template('index.html')
 
 
-@app.route('/allbooks')
+@app.route('/allbooks', methods=["POST","GET"])
 def allbooks():
-    titel = DbClass().gettitels()
-    # isbn = DbClass().getISBN()
-    return render_template('allbooks.html',titel=titel)
+    if request.method == 'POST':
+        result = request.form
+        data = DbClass().getdata()
+        #titel = request.form[0][0]('inputTitel')
+        print(result)
+        # print(titel)
+        return render_template("allbooks.html", result=result,data=data)
+    else:
+        data = DbClass().getdata()
+        return render_template('allbooks.html',data=data)
 
 
-@app.route('/addbook', methods=["POST", "GET"])
+@app.route('/addbook')
 def addbook():
     return render_template('addbook.html')
 
@@ -29,21 +36,6 @@ def addbook():
 def rentedbooks():
     return render_template('rentedbooks.html')
 
-@app.route('/storage')
-def storage():
-    _titel = request.form['inputTitel']
-    _auteur = request.form['inputAuteur']
-    _isbn = request.form['inputISBN']
-    _aantalblz = request.form['inputAantalblz']
-    _Categorie = request.form['inputCategorie']
-
-    print(_titel)
-    if _Categorie and _aantalblz and _auteur and _isbn and _titel:
-        if _Categorie not in listcategorien:
-            return json.dumps({'html':'<span>Kies de categorie uit: Educatie, Technologie, Actie,      Reizen,Fantasy![Case Sensitive]</span>}'})
-        else:
-            return json.dumps({'html':'<span>Boek wordt toegevoegd!'})
-    return render_template('allbooks.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT",3000))

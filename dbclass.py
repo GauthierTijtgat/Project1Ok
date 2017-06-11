@@ -12,22 +12,22 @@ class DbClass:
         self.__connection = connector.connect(**self.__dsn)
         self.__cursor = self.__connection.cursor()
 
-    def gettitels(self):
-        q = "SELECT Titel FROM boek"
+    def getdata(self):
+        q = "select boek.Titel, boek.ISBN, boek.AantalBlz, auteurs.Auteur,categories.Categorie FROM boek JOIN auteurs ON boek.AuteurID=auteurs.AuteurID JOIN categories ON boek.CategorieID=categories.CategorieID;"
         self.__cursor.execute(q)
-        titels = self.__cursor.fetchall()
+        data = self.__cursor.fetchall()
         self.__cursor.close()
-        print(titels)
-        return titels
+        print(data)
+        return data
 
-    # def getISBN(self):
-    #     q = "SELECT ISBN FROM boek"
-    #
-    #     self.__cursor.execute(q)
-    #     isbns = self.__cursor.fetchall()
-    #     self.__cursor.close()
-    #     print(isbns)
-    #     return isbns
+    def adddata(self):
+        q = ""
+        self.__cursor.execute(q)
+        add = self.__cursor.fetchall()
+        self.__cursor.close()
+        print(add)
+        return add
+
 
 
 

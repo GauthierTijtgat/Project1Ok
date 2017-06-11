@@ -4,6 +4,8 @@ import os
 import _json
 import json
 app = Flask(__name__)
+import mysql.connector
+from dbclass import DbClass
 
 listcategorien = ["Educatie", "Technologie", "Actie", "Reizen", "Fantasy"]
 
@@ -14,12 +16,8 @@ def home():
 
 @app.route('/allbooks')
 def allbooks():
-    # _titel = request.form['inputTitel']
-    # _auteur = request.form['inputAuteur']
-    # _isbn = request.form['inputISBN']
-    # _aantalblz = request.form['inputAantalblz']
-    # _Categorie = request.form['inputCategorie']
-    return render_template('allbooks.html')
+    titels = DbClass().gettitels()
+    return render_template('allbooks.html',titels=titels)
 
 
 @app.route('/addbook', methods=["POST", "GET"])

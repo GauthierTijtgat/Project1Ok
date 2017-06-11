@@ -1,91 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>allbooks</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+{% extends "base.html" %}
 
-</head>
-<body>
 
 
 {% block back %}
 <li><a href="{{ url_for("home") }}"><img src="/static/img/layer-5.png" style="width:40px; height:40px;"></a></li>
 {% endblock %}
 
-<header>
-
-<img src="/static/img/logoproject.png" style="width:70px; height:70px;">
-
-		<nav>
+{% block headertitel %}
+<h1> All Books </h1>
+{% endblock %}
 
 
-			<ul>
-				<li><li><a href="addbook.html"><img src="/static/img/layer-4.png" style="width:35px; height:35px;"></a></li></li>
-                <li><li><a href="index.html"><img src="/static/img/layer-5.png"  style="width:35px; height:35px;"></a></li></li>
+<table border="1" cellpadding="5" cellspacing="5">
 
+    {% for d in titels %}
+        {% print(d) %}
+        <tr>
+            <td>
+            {{ d }}
+            </td>
+        </tr>
+    {% endfor %}
+</table>
 
-			</ul>
-		</nav>
-
-	</header>
-
-<h1>All Books</h1>
-
-		<table>
-			<thead>
-			    <tr>
-			      <th>Column 1</th>
-			      <th>Column 2</th>
-			      <th>Column 3</th>
-			      <th>Column 4</th>
-			      <th>Column 5</th>
-			    </tr>
-			</thead>
-			<tbody>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			</tbody>
-		</table>
-</body>
-</html>

@@ -16,8 +16,9 @@ def home():
 
 @app.route('/allbooks')
 def allbooks():
-    titels = DbClass().gettitels()
-    return render_template('allbooks.html',titels=titels)
+    titel = DbClass().gettitels()
+    # isbn = DbClass().getISBN()
+    return render_template('allbooks.html',titel=titel)
 
 
 @app.route('/addbook', methods=["POST", "GET"])

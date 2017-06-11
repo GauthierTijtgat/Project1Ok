@@ -11,15 +11,25 @@
 {% endblock %}
 
 
+{% block body %}
 <table border="1" cellpadding="5" cellspacing="5">
-
-    {% for d in titels %}
-        {% print(d) %}
+    <tr>
+        <td>
+            Titel
+        </td>
+         <td>
+            ISBN
+        </td>
+    </tr>
+    {% for d in titel %}
         <tr>
             <td>
             {{ d }}
             </td>
         </tr>
     {% endfor %}
+
+
 </table>
 
+{% endblock %}

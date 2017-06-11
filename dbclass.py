@@ -17,8 +17,17 @@ class DbClass:
         self.__cursor.execute(q)
         titels = self.__cursor.fetchall()
         self.__cursor.close()
+        print(titels)
         return titels
 
+    # def getISBN(self):
+    #     q = "SELECT ISBN FROM boek"
+    #
+    #     self.__cursor.execute(q)
+    #     isbns = self.__cursor.fetchall()
+    #     self.__cursor.close()
+    #     print(isbns)
+    #     return isbns
 
 
 

@@ -63,13 +63,8 @@ def addbook():
 
 @app.route('/rentedbooks')
 def rentedbooks():
-    return render_template('rentedbooks.html')
-
-
-
-
-
-
+    rented = DbClass().getrented()
+    return render_template('rentedbooks.html',rented =rented)
 
 
 if __name__ == '__main__':

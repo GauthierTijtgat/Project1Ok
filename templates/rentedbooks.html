@@ -1,85 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>rentedbooks</title>
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/styles.css') }}">
+{% extends "base.html" %}
 
-</head>
-<body>
+{% block title %}
+    SmartBooked || Rentedbooks
+{% endblock %}
 
-<header>
+{% block back %}
+<li><a href="{{ url_for("home") }}"><img src="/static/img/layer-5.png" style="width:40px; height:40px;"></a></li>
+{% endblock %}
 
-<img src="/static/img/logoproject.png" style="width:70px; height:70px;">
-
-		<nav>
-
-<ul>
-				<li><li><a href="addbook.html"><img src="/static/img/layer-4.png" style="width:35px; height:35px;"></a></li></li>
-                <li><li><a href="index.html"><img src="/static/img/layer-5.png"  style="width:35px; height:35px;"></a></li></li>
+{% block headertitel %}
+<h1> Rented Books </h1>
+{% endblock %}
 
 
-			</ul>
+{% block body %}
+<table>
 
-		</nav>
+<tr>
+    <th>Titel</th>
+    <th>ISBN</th>
+    <th>AantalBlz</th>
+    <th>Auteur</th>
+    <th>Categorie</th>
+</tr>
+{% for d in rented %}
+    <tr>
+        <td>{{d[4]}}</td>
+        <td>{{d[5]}}</td>
+        <td>{{d[6]}}</td>
+        <td>{{d[7]}}</td>
+        <td>{{d[8]}}</td>
+    </tr>
 
-	</header>
-<h1>Rented Books</h1>
+{% endfor %}
+</table>
 
-		<table>
-			<thead>
-			    <tr>
-			      <th>Column 1</th>
-			      <th>Column 2</th>
-			      <th>Column 3</th>
-			      <th>Column 4</th>
-			      <th>Column 5</th>
-			    </tr>
-			</thead>
-			<tbody>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			    <tr>
-			      <td>Data 1</td>
-			      <td>Data 2</td>
-			      <td>Data 3</td>
-			      <td>Data 4</td>
-			      <td>Data 5</td>
-			    </tr>
-			</tbody>
-		</table>
-</body>
-</html>
+
+
+
+</table>
+
+{% endblock %}

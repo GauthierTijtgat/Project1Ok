@@ -47,6 +47,14 @@ class DbClass:
         self.__connection.close()
         print('addedauter')
 
+    def getrented(self):
+        q = "select logsysteem.LOGID, logsysteem.BoekID, boek.BookID,logsysteem.type,boek.Titel, boek.ISBN, boek.AantalBlz,auteurs.Auteur,categories.Categorie FROM  logsysteem JOIN boek ON boek.BookID=logsysteem.LOGID JOIN auteurs ON boek.AuteurID=auteurs.AuteurID JOIN categories ON boek.CategorieID=categories.CategorieID WHERE logsysteem.type='OUT';"
+        self.__cursor.execute(q)
+        rented = self.__cursor.fetchall()
+        self.__cursor.close()
+        print(rented)
+        return rented
+
 
 
 

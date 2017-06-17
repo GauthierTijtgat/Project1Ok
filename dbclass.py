@@ -36,16 +36,15 @@ class DbClass:
         print('addedbook')
 
 
-    def addauteur(self):
-        nAuteur = request.form['inputAuteur']
-        print(nAuteur)
-        print("enteredauteur")
-        q = "INSERT INTO mydb.auteurs(Auteur) VALUES ('{auteur}')"
-        qcommand = q.format(auteur = nAuteur)
-        self.__cursor.execute(qcommand)
-        self.__connection.commit()
-        self.__connection.close()
-        print('addedauter')
+    # def addauteur(self):
+    #     nAuteur = request.form['inputAuteur']
+    #     print(nAuteur)
+    #     print("enteredauteur")
+    #     # q = """INSERT INTO mydb.auteurs(Auteur) VALUES (%s)"""%(nAuteur)
+    #     self.__cursor.execute("""INSERT INTO mydb.auteurs(Auteur) VALUES (%s)"""%(nAuteur))
+    #     self.__connection.commit()
+    #     self.__connection.close()
+    #     print('addedauter')
 
     def getrented(self):
         q = "select logsysteem.LOGID, logsysteem.BoekID, boek.BookID,logsysteem.type,boek.Titel, boek.ISBN, boek.AantalBlz,auteurs.Auteur,categories.Categorie FROM  logsysteem JOIN boek ON boek.BookID=logsysteem.LOGID JOIN auteurs ON boek.AuteurID=auteurs.AuteurID JOIN categories ON boek.CategorieID=categories.CategorieID WHERE logsysteem.type='OUT';"
